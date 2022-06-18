@@ -1,6 +1,5 @@
-CREATE TABLE orders(
+CREATE TABLE IF NOT EXISTS orders (
     id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    status VARCHAR(255) NOT NULL
+    status VARCHAR(15) DEFAULT 'open',
+    user_id bigint REFERENCES users(id) NOT NULL
 );
